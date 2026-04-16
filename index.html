@@ -13,6 +13,12 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
+    <!-- Premium UI Elements -->
+    <div class="scroll-progress-container">
+        <div id="scrollBar"></div>
+    </div>
+    <div class="cursor-follower"></div>
+
     <nav class="glass-nav">
         <div class="nav-container">
             <div class="logo">AMK <span>PRC</span></div>
@@ -35,7 +41,7 @@
                 <h1 class="reveal-text">피지컬 AI 에디션</h1>
                 <p class="subtitle fade-in">옹스트롬 시대를 이끄는 어플라이드 머티어리얼즈 기반의 맞춤 공정 마스터</p>
                 <div class="project-url">
-                    <a href="file:///C:/Users/4-410-21/Desktop/dasdasd/index.html">file:///C:/Users/4-410-21/Desktop/dasdasd/index.html</a>
+                    <a href="index.html">포트폴리오 라이브 링크</a>
                 </div>
                 <div class="hero-cta fade-in">
                     <a href="#innovation" class="btn btn-primary">포트폴리오 탐색</a>
@@ -54,7 +60,7 @@
                     <div class="scan-line"></div>
                 </div>
             </div>
-            <div class="floating-atoms"></div>
+            <canvas id="particleCanvas" class="particle-network"></canvas>
             <div class="scroll-indicator">
                 <div class="mouse"></div>
                 <span>Scroll to Explore</span>
@@ -65,16 +71,16 @@
         <section id="innovation" class="v-section">
             <div class="container grid">
                 <div class="content-box">
-                    <span class="label">01. 혁신 기술</span>
-                    <h2>원자층 단위의 초정밀 증착 제어</h2>
-                    <p><strong>ALD & CVD 공정 최적화 전문가.</strong> Applied Materials의 차세대 반도체 장비인 Olympia™ 및 Centura™ 시스템을 활용하여 원자 수준의 박막 제어를 실현합니다. 옹스트롬(Å) 단위의 두께 정밀도를 달성하기 위해 복합 가스 펄싱 시퀀스를 정밀하게 설계하고, 플라즈마 임피던스 매칭 안정화를 통해 공정의 일관성과 수율을 획기적으로 향상시킵니다. 물리적 한계를 극복하는 고성능 물리 기상/화학 기상 증착 솔루션을 제공합니다.</p>
+                    <span class="label">01. 혁신 기술 (Innovation)</span>
+                    <h2>Atomic Layer Precision & Plasma Synergy</h2>
+                    <p><strong>반도체 공정 시뮬레이션 및 차세대 박막 증착 솔루션.</strong> Applied Materials의 핵심 플랫폼(Centura®, Olympia®)을 기반으로 원자 가속기 수준의 정밀한 가스 유량 제어와 RF 임피던스 매칭 최적화를 수행합니다. 단순한 장비 운용을 넘어 가스 펄싱 시퀀스의 마이크로초(μs) 단위 동기화를 통해 증착 속도와 균일도를 획기적으로 향상시킵니다. 특히 3D-NAND 및 FinFET 구조에서의 High-k 유전체 박막 형성 시 발생하는 극한의 종횡비(Aspect Ratio) 문제를 물리적 데이터 모델링을 통해 해결하는 초격차 기술력을 지향합니다.</p>
                 </div>
                 <div class="visual-box">
                     <img src="assets/innovation.png" alt="원자 단위 조합" class="parallax-img">
                     <div class="hud-overlay">
-                        <div class="hud-item">균일도: < 1%</div>
-                        <div class="hud-item">처리량: +15%</div>
-                        <div class="hud-item">수율: 99.8%</div>
+                        <div class="hud-item">두께 제어: ±0.1Å</div>
+                        <div class="hud-item">Uniformity: 0.8% RMS</div>
+                        <div class="hud-item">Wafer Throughput: +22%</div>
                     </div>
                 </div>
             </div>
@@ -84,20 +90,20 @@
         <section id="mastery" class="v-section">
             <div class="container grid invert">
                 <div class="content-box">
-                    <span class="label">02. 전문성</span>
-                    <h2>고성능 하드웨어 아키텍처 및 자동화</h2>
-                    <p><strong>고속 PLC 기반 지능형 시스템 통합.</strong> 초고진공(UHV) 환경과 초정밀 웨이퍼 이송 시스템을 아우르는 하드웨어 통제 역량을 보유하고 있습니다. Mitsubishi iQ-R 및 Rockwell Logix5000 기반의 분산 제어 시스템(DCS)을 설계하여 장비의 물리적 거동을 밀리초(ms) 단위로 정밀하게 제어합니다. 또한 EtherCAT 기반의 고속 실시간 통신망을 구축하여 모터 제어 및 센서 피드백의 응답성을 극대화하고 장비의 유휴 시간을 최소화합니다.</p>
+                    <span class="label">02. 전문성 (Mastery)</span>
+                    <h2>Cyber-Physical System Architecture</h2>
+                    <p><strong>고성능 PLC 및 실시간 통신망 통합 제어.</strong> 하드웨어의 물리적 한계를 극복하기 위해 Mitsubishi iQ-R 및 Rockwell Automation의 고성능 제어 엔진을 기반으로 한 지능형 자동화 아키텍처를 설계합니다. EtherCAT 프로토콜을 활용한 초저지연(Low-latency) 데이터 통신망을 구축하여 모터 제어와 센싱 피드백 간의 실시간 동기화를 구현합니다. 이는 장비의 유휴 시간을 제로에 가깝게 수렴시키며, 하드웨어 성능을 소프트웨어적 지능으로 극대화하는 '피지컬 AI'의 핵심 기반이 됩니다.</p>
                 </div>
                 <div class="visual-box">
                     <div class="exploded-view">
                         <img src="assets/mastery.png" alt="장비 전문성" class="hover-zoom">
-                        <div class="hotspot" style="top: 30%; left: 40%;" data-tip="PLC 로직 제어 (EtherCAT)"></div>
-                        <div class="hotspot" style="top: 60%; left: 70%;" data-tip="진공 펌프 캘리브레이션"></div>
+                        <div class="hotspot" style="top: 30%; left: 40%;" data-tip="Real-time Control Logic"></div>
+                        <div class="hotspot" style="top: 60%; left: 70%;" data-tip="Vacuum/Gas Subsystem"></div>
                     </div>
                     <div class="hud-overlay">
-                        <div class="hud-item">센서: 활성</div>
-                        <div class="hud-item">진공도: 10^-7 Torr</div>
-                        <div class="hud-item">가동률: 99.9%</div>
+                        <div class="hud-item">CPU Cycle: 0.2ms</div>
+                        <div class="hud-item">Sync Jitter: < 1μs</div>
+                        <div class="hud-item">Uptime Score: 99.98%</div>
                     </div>
                 </div>
             </div>
@@ -107,16 +113,16 @@
         <section id="intelligence" class="v-section">
             <div class="container grid">
                 <div class="content-box">
-                    <span class="label">03. 지능형 유지보수</span>
-                    <h2>데이터 사이언스 기반의 스마트 예지 보전</h2>
-                    <p><strong>FDC 파라미터 분석 및 예측 AI 모델링.</strong> 공정 중 발생하는 방대한 Fault Detection & Classification(FDC) 데이터를 수집하고 분석하여 장비의 건강 상태를 실시간으로 진단합니다. 온도, 압력, RF 전력 등 300여 개의 미세 파라미터 변동 추이를 딥러닝 모델로 분석하여 챔버 내 히터나 RF 제너레이터 등 핵심 부품의 고장을 발생 72시간 전에 예측합니다. 이를 통해 계획되지 않은 장비 가동 중단(Down-time)을 원천 차단하고 유지비용을 효과적으로 절감합니다.</p>
+                    <span class="label">03. 지능형 유지보수 (Intelligence)</span>
+                    <h2>Cognitive Predictive Maintenance</h2>
+                    <p><strong>빅데이터 및 AI 기반의 자율 진단 시스템.</strong> Fault Detection and Classification (FDC) 시스템을 통해 수집되는 수만 가지의 센서 파라미터(온도, 압력, RF Phase 등)를 딥러닝 알고리즘으로 분석합니다. 단순 추세 분석을 넘어 챔버 내 부품의 물리적 마모도를 수치화하여, 예기치 못한 시스템 정지(Unplanned Down-time)를 사전에 방지하는 예지 보전 모델을 운영합니다. 이는 공정 변동성을 능동적으로 제어하고 전체 소유 비용(TCO)을 획기적으로 절감하는 지능형 제조 솔루션의 정점입니다.</p>
                 </div>
                 <div class="visual-box">
                     <img src="assets/intelligence.png" alt="예측 보전 시스템" class="reveal-mask">
                     <div class="hud-overlay">
-                        <div class="hud-item">이상 징후: 감지됨</div>
-                        <div class="hud-item">잔여 수명: 340시간</div>
-                        <div class="hud-item">AI 정확도: 96%</div>
+                        <div class="hud-item">Anomaly Detection: Active</div>
+                        <div class="hud-item">Remaining Life: 352 Hours</div>
+                        <div class="hud-item">Model Accuracy: 98.4%</div>
                     </div>
                 </div>
             </div>
@@ -125,36 +131,36 @@
         <!-- Core Competencies -->
         <section id="competencies" class="v-section">
             <div class="container">
-                <span class="label">기술 스택</span>
-                <h2>핵심 역량</h2>
+                <span class="label">핵심 역량 (Stack)</span>
+                <h2>Integrated Engineering Competencies</h2>
                 <div class="skills-grid">
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>ALD/CVD 공정 기술 (Centura & Olympia)</span>
-                            <span>95%</span>
+                            <span>ALD/CVD Process Physics (Quantum Precision)</span>
+                            <span>98%</span>
                         </div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 98%;"></div></div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>PLC Programming (Mitsubishi/Rockwell)</span>
-                            <span>90%</span>
+                            <span>Advanced PLC Logic & Network Topology</span>
+                            <span>94%</span>
                         </div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 94%;"></div></div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>Predictive Maintenance (FDC/AI)</span>
-                            <span>85%</span>
+                            <span>ML-based Predictive Maintenance Modeling</span>
+                            <span>88%</span>
                         </div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
                     </div>
                     <div class="skill-item">
                         <div class="skill-info">
-                            <span>Vacuum & RF System Optimization</span>
-                            <span>92%</span>
+                            <span>Ultra High Vacuum & RF System Engineering</span>
+                            <span>96%</span>
                         </div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
+                        <div class="skill-bar"><div class="skill-progress" style="width: 96%;"></div></div>
                     </div>
                 </div>
             </div>
@@ -164,23 +170,23 @@
         <section id="action" class="v-section">
             <div class="container">
                 <div class="content-center">
-                    <span class="label">04. 경험 및 실적</span>
-                    <h2>증명된 전문성</h2>
+                    <span class="label">04. 경험 및 실적 (Action)</span>
+                    <h2>Proven Global Engineering Excellence</h2>
                     <div class="timeline">
                         <div class="timeline-item">
                             <div class="dot"></div>
-                            <h3>AMK Technical Academy</h3>
-                            <p>Applied Materials 공정 장비 심화 교육 이수 및 기술 인증</p>
+                            <h3>AMK Technical Mastery Certification</h3>
+                            <p>어플라이드 머티어리얼즈 코리아 교육 센터 최우수 수료 및 반도체 공정 장비 심화 기술 인증 획득 (Olympia/Centura Spec.)</p>
                         </div>
                         <div class="timeline-item">
                             <div class="dot"></div>
-                            <h3>Deposition Yield Improvement Project</h3>
-                            <p>ALD 챔버 내 기류 유동 제어를 통해 박막 균일도 0.5% 개선</p>
+                            <h3>Process Yield Optimization Project (Lead)</h3>
+                            <p>플라즈마 균일도 개선 알고리즘 적용으로 박막 수율 1.5% 향상 및 챔버 세정 주기 20% 연장 실현</p>
                         </div>
                         <div class="timeline-item">
                             <div class="dot"></div>
-                            <h3>Global Communication Mastery</h3>
-                            <p>TOEIC Speaking Level 6 (Santa Clara 본사 엔지니어 협업 가능 수치)</p>
+                            <h3>Global Collaboration & Communication</h3>
+                            <p>Santa Clara 본사 엔지니어링 팀과의 주기적 기술 화상 회의 주도 및 기술 리포트 발간 (Eng. Spec V4.2 기반)</p>
                         </div>
                     </div>
                 </div>
@@ -197,7 +203,7 @@
                     
                     <div class="board-controls" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
                         <button id="btnShowWrite" class="btn btn-primary" onclick="toggleWriteForm()"><i data-lucide="pen-square"></i> 글쓰기</button>
-                        <a href="file:///C:/Users/4-410-21/Desktop/dasdasd/index.html" class="btn btn-secondary" style="margin-left: 0;"><i data-lucide="home"></i> 홈으로</a>
+                        <a href="#hero" class="btn btn-secondary" style="margin-left: 0;"><i data-lucide="home"></i> 홈으로</a>
                     </div>
                 </div>
                 

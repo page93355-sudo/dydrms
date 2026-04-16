@@ -71,38 +71,114 @@ sections.forEach((section) => {
     }
 });
 
-// Floating Atoms Animation (Hero)
-const hero = document.querySelector('#hero');
-const atomContainer = document.querySelector('.floating-atoms');
+// Particle Network Background (Grand Aesthetic)
+const canvas = document.getElementById('particleCanvas');
+const cursor = document.querySelector('.cursor-follower');
+const scrollBar = document.getElementById('scrollBar');
 
-function createAtom() {
-    const atom = document.createElement('div');
-    atom.style.position = 'absolute';
-    atom.style.width = '4px';
-    atom.style.height = '4px';
-    atom.style.background = 'rgba(255, 255, 255, 0.4)';
-    atom.style.borderRadius = '50%';
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let mouse = { x: null, y: null };
     
-    const x = Math.random() * window.innerWidth;
-    const y = Math.random() * window.innerHeight;
+    function resize() {
+        canvas.width = window.innerWidth;
+        const heroSection = document.getElementById('hero');
+        canvas.height = heroSection ? heroSection.offsetHeight : window.innerHeight;
+    }
     
-    atom.style.left = `${x}px`;
-    atom.style.top = `${y}px`;
-    
-    atomContainer.appendChild(atom);
-    
-    gsap.to(atom, {
-        x: (Math.random() - 0.5) * 400,
-        y: (Math.random() - 0.5) * 400,
-        duration: 5 + Math.random() * 10,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        opacity: Math.random()
+    window.addEventListener('resize', resize);
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        
+        // Update Custom Cursor
+        if (cursor) {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        }
     });
-}
 
-for(let i=0; i<30; i++) createAtom();
+    window.addEventListener('mousedown', () => cursor && cursor.classList.add('active'));
+    window.addEventListener('mouseup', () => cursor && cursor.classList.remove('active'));
+
+    // Scroll Progress
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        if (scrollBar) scrollBar.style.width = scrolled + "%";
+    });
+    
+    resize();
+    
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 1.5;
+            this.vy = (Math.random() - 0.5) * 1.5;
+            this.radius = Math.random() * 2 + 1;
+        }
+        
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+            // Mouse interaction
+            if (mouse.x != null) {
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist < 100) {
+                    this.x -= dx * 0.05;
+                    this.y -= dy * 0.05;
+                }
+            }
+        }
+        
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(14, 165, 233, 0.6)';
+            ctx.fill();
+        }
+    }
+    
+    for (let i = 0; i < 80; i++) {
+        particles.push(new Particle());
+    }
+    
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+            
+            for (let j = i; j < particles.length; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 150) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = `rgba(14, 165, 233, ${(1 - distance / 150) * 0.5})`;
+                    ctx.lineWidth = 1;
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+}
 
 // Hero Robot Parallax
 const heroVisual = document.querySelector('.hero-visual');
