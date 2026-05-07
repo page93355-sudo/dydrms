@@ -3,274 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMK Portfolio | The Physical AI Engineer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>로봇소프트웨어과 - 혁신의 중심</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Instant visibility for dynamic sections */
+        .is-visible { opacity: 1 !important; transform: none !important; }
+    </style>
 </head>
 <body>
-    <!-- Premium UI Elements -->
-    <div class="scroll-progress-container">
-        <div id="scrollBar"></div>
-    </div>
-    <div class="cursor-follower"></div>
-
-    <nav class="glass-nav">
-        <div class="nav-container">
-            <div class="logo">AMK <span>PRC</span></div>
-            <ul class="nav-links">
-                <li><a href="#innovation">혁신 기술</a></li>
-                <li><a href="#mastery">전문성</a></li>
-                <li><a href="#intelligence">지능형 유지보수</a></li>
-                <li><a href="#competencies">기술 역량</a></li>
-                <li><a href="#action">경험 및 실적</a></li>
-                <li><a href="#board">자유 게시판</a></li>
-                <li><a href="#contact">연락처</a></li>
-            </ul>
-        </div>
+    <!-- Global Navigation -->
+    <nav class="global-nav">
+        <ul class="nav-list">
+            <li><a href="#" class="icon-apple" aria-label="Home"></a></li>
+            <li><a href="#">학교소개</a></li>
+            <li><a href="#">학과소개</a></li>
+            <li><a href="#">입학안내</a></li>
+            <li><a href="#">나의 포트폴리오</a></li>
+            <li><a href="#">관련회사</a></li>
+            <li><a href="#">학교생활</a></li>
+            <li><a href="#" class="icon-search" aria-label="검색"></a></li>
+        </ul>
     </nav>
 
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <p>2026학년도 로봇소프트웨어과 신입생 모집 중! <a href="#">모집 요강 확인하기 ></a></p>
+    </div>
+
+    <!-- Main Content -->
     <main>
+        <!-- Chapter Nav -->
+        <nav class="chapter-nav">
+            <div class="container">
+                <ul class="chapter-list">
+                    <li><a href="#"><span>학과소개</span></a></li>
+                    <li><a href="#"><span>교육과정</span></a></li>
+                    <li><a href="#"><span>교수소개</span></a></li>
+                    <li><a href="#"><span>학과앨범</span></a></li>
+                    <li><a href="#"><span>학과공지</span></a></li>
+                    <li><a href="#"><span>전공동아리</span><span class="new">New</span></a></li>
+                </ul>
+            </div>
+        </nav>
+
         <!-- Hero Section -->
-        <section id="hero" class="v-section">
-            <div class="hero-content">
-                <h1 class="reveal-text">피지컬 AI 에디션</h1>
-                <p class="subtitle fade-in">옹스트롬 시대를 이끄는 어플라이드 머티어리얼즈 기반의 맞춤 공정 마스터</p>
-                <div class="project-url">
-                    <a href="index.html">포트폴리오 라이브 링크</a>
-                </div>
-                <div class="hero-cta fade-in">
-                    <a href="#innovation" class="btn btn-primary">포트폴리오 탐색</a>
-                    <a href="#board" class="btn btn-secondary"><i data-lucide="message-square" style="width:18px; margin-right:5px; vertical-align:middle;"></i> 자유 게시판</a>
-                    <a href="mailto:1234@gmail.com" class="btn btn-outline" style="border: 1px solid rgba(255,255,255,0.3); padding: 0.8rem 1.5rem; border-radius: 50px; font-weight: 500; transition: all 0.3s;">전문가 상담</a>
-                </div>
-                <div class="hero-specs fade-in">
-                    <div class="spec-item"><i data-lucide="target"></i> 정밀도: 1Å</div>
-                    <div class="spec-item"><i data-lucide="cpu"></i> AI: 예측형 4.0</div>
-                    <div class="spec-item"><i data-lucide="settings"></i> 시스템: ALD/CVD</div>
-                </div>
-            </div>
-            <div class="hero-visual fade-in">
-                <div class="scan-container">
-                    <img src="assets/robot_banner.png" alt="Physical AI Robot" class="floating-robot">
-                    <div class="scan-line"></div>
-                </div>
-            </div>
-            <canvas id="particleCanvas" class="particle-network"></canvas>
-            <div class="scroll-indicator">
-                <div class="mouse"></div>
-                <span>Scroll to Explore</span>
-            </div>
-        </section>
-
-        <!-- Section 01: INNOVATION -->
-        <section id="innovation" class="v-section">
-            <div class="container grid">
-                <div class="content-box">
-                    <span class="label">01. 혁신 기술 (Innovation)</span>
-                    <h2>Atomic Layer Precision & Plasma Synergy</h2>
-                    <p><strong>반도체 공정 시뮬레이션 및 차세대 박막 증착 솔루션.</strong> Applied Materials의 핵심 플랫폼(Centura®, Olympia®)을 기반으로 원자 가속기 수준의 정밀한 가스 유량 제어와 RF 임피던스 매칭 최적화를 수행합니다. 단순한 장비 운용을 넘어 가스 펄싱 시퀀스의 마이크로초(μs) 단위 동기화를 통해 증착 속도와 균일도를 획기적으로 향상시킵니다. 특히 3D-NAND 및 FinFET 구조에서의 High-k 유전체 박막 형성 시 발생하는 극한의 종횡비(Aspect Ratio) 문제를 물리적 데이터 모델링을 통해 해결하는 초격차 기술력을 지향합니다.</p>
-                </div>
-                <div class="visual-box">
-                    <img src="assets/innovation.png" alt="원자 단위 조합" class="parallax-img">
-                    <div class="hud-overlay">
-                        <div class="hud-item">두께 제어: ±0.1Å</div>
-                        <div class="hud-item">Uniformity: 0.8% RMS</div>
-                        <div class="hud-item">Wafer Throughput: +22%</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 02: MASTERY -->
-        <section id="mastery" class="v-section">
-            <div class="container grid invert">
-                <div class="content-box">
-                    <span class="label">02. 전문성 (Mastery)</span>
-                    <h2>Cyber-Physical System Architecture</h2>
-                    <p><strong>고성능 PLC 및 실시간 통신망 통합 제어.</strong> 하드웨어의 물리적 한계를 극복하기 위해 Mitsubishi iQ-R 및 Rockwell Automation의 고성능 제어 엔진을 기반으로 한 지능형 자동화 아키텍처를 설계합니다. EtherCAT 프로토콜을 활용한 초저지연(Low-latency) 데이터 통신망을 구축하여 모터 제어와 센싱 피드백 간의 실시간 동기화를 구현합니다. 이는 장비의 유휴 시간을 제로에 가깝게 수렴시키며, 하드웨어 성능을 소프트웨어적 지능으로 극대화하는 '피지컬 AI'의 핵심 기반이 됩니다.</p>
-                </div>
-                <div class="visual-box">
-                    <div class="exploded-view">
-                        <img src="assets/mastery.png" alt="장비 전문성" class="hover-zoom">
-                        <div class="hotspot" style="top: 30%; left: 40%;" data-tip="Real-time Control Logic"></div>
-                        <div class="hotspot" style="top: 60%; left: 70%;" data-tip="Vacuum/Gas Subsystem"></div>
-                    </div>
-                    <div class="hud-overlay">
-                        <div class="hud-item">CPU Cycle: 0.2ms</div>
-                        <div class="hud-item">Sync Jitter: < 1μs</div>
-                        <div class="hud-item">Uptime Score: 99.98%</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 03: INTELLIGENCE -->
-        <section id="intelligence" class="v-section">
-            <div class="container grid">
-                <div class="content-box">
-                    <span class="label">03. 지능형 유지보수 (Intelligence)</span>
-                    <h2>Cognitive Predictive Maintenance</h2>
-                    <p><strong>빅데이터 및 AI 기반의 자율 진단 시스템.</strong> Fault Detection and Classification (FDC) 시스템을 통해 수집되는 수만 가지의 센서 파라미터(온도, 압력, RF Phase 등)를 딥러닝 알고리즘으로 분석합니다. 단순 추세 분석을 넘어 챔버 내 부품의 물리적 마모도를 수치화하여, 예기치 못한 시스템 정지(Unplanned Down-time)를 사전에 방지하는 예지 보전 모델을 운영합니다. 이는 공정 변동성을 능동적으로 제어하고 전체 소유 비용(TCO)을 획기적으로 절감하는 지능형 제조 솔루션의 정점입니다.</p>
-                </div>
-                <div class="visual-box">
-                    <img src="assets/intelligence.png" alt="예측 보전 시스템" class="reveal-mask">
-                    <div class="hud-overlay">
-                        <div class="hud-item">Anomaly Detection: Active</div>
-                        <div class="hud-item">Remaining Life: 352 Hours</div>
-                        <div class="hud-item">Model Accuracy: 98.4%</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Core Competencies -->
-        <section id="competencies" class="v-section">
+        <section class="section-padding fade-in-section">
             <div class="container">
-                <span class="label">핵심 역량 (Stack)</span>
-                <h2>Integrated Engineering Competencies</h2>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>ALD/CVD Process Physics (Quantum Precision)</span>
-                            <span>98%</span>
-                        </div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 98%;"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Advanced PLC Logic & Network Topology</span>
-                            <span>94%</span>
-                        </div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 94%;"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>ML-based Predictive Maintenance Modeling</span>
-                            <span>88%</span>
-                        </div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-info">
-                            <span>Ultra High Vacuum & RF System Engineering</span>
-                            <span>96%</span>
-                        </div>
-                        <div class="skill-bar"><div class="skill-progress" style="width: 96%;"></div></div>
+                <div class="hero-container" style="height: 550px; position: relative; overflow: hidden; border-radius: 30px;">
+                    <div class="hero-image" role="img" aria-label="첨단 로봇 소프트웨어 연구소"></div>
+                    <div class="hero-text-overlay" style="position: absolute; top: 50%; left: 8%; transform: translateY(-50%); color: white; text-shadow: 0 4px 20px rgba(0,0,0,0.6); max-width: 600px;">
+                        <h1 style="font-size: 56px; margin-bottom: 15px; font-weight: 700;">미래를 설계하는,<br>로봇소프트웨어과</h1>
+                        <p style="font-size: 18px; line-height: 1.6; opacity: 0.95;">인공지능 소프트웨어와 로봇 하드웨어의 융합을 통해 4차 산업혁명의 핵심 인재로 거듭나세요.</p>
+
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 04: ACTION -->
-        <section id="action" class="v-section">
+        <!-- Stats Section -->
+        <section class="section-padding fade-in-section stats-section">
+            <div class="container" style="background: #fbfbfd; border-radius: 30px; padding: 60px 40px; display: flex; justify-content: space-around; text-align: center; border: 1px solid #f2f2f7;">
+                <div class="stat-item">
+                    <h4 style="font-size: 52px; color: #007aff; font-weight: 700; margin-bottom: 5px;">95.8%</h4>
+                    <p style="color: #86868b; font-size: 15px;">최근 3년 평균 취업률</p>
+                </div>
+                <div class="stat-item">
+                    <h4 style="font-size: 52px; color: #007aff; font-weight: 700; margin-bottom: 5px;">24건</h4>
+                    <p style="color: #86868b; font-size: 15px;">국내외 기술 특허 보유</p>
+                </div>
+                <div class="stat-item">
+                    <h4 style="font-size: 52px; color: #007aff; font-weight: 700; margin-bottom: 5px;">40억</h4>
+                    <p style="color: #86868b; font-size: 15px;">정부 지원 국책사업 수행</p>
+                </div>
+                <div class="stat-item">
+                    <h4 style="font-size: 52px; color: #007aff; font-weight: 700; margin-bottom: 5px;">TOP</h4>
+                    <p style="color: #86868b; font-size: 15px;">전국 로봇 경진대회 대통령상</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Grid -->
+        <section class="section-padding fade-in-section">
             <div class="container">
-                <div class="content-center">
-                    <span class="label">04. 경험 및 실적 (Action)</span>
-                    <h2>Proven Global Engineering Excellence</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="dot"></div>
-                            <h3>AMK Technical Mastery Certification</h3>
-                            <p>어플라이드 머티어리얼즈 코리아 교육 센터 최우수 수료 및 반도체 공정 장비 심화 기술 인증 획득 (Olympia/Centura Spec.)</p>
+                <div class="section-title-wrapper">
+                    <h2>연구 분야 및 기술 스택</h2>
+                    <a href="#" class="link-more">전체 커리큘럼 보기 ></a>
+                </div>
+                <div class="lineup-grid">
+                    <div class="lineup-card slide-up-section delay-1">
+                        <div class="card-image bg-dept-ai" role="img" aria-label="AI 소프트웨어 엔진"></div>
+                        <h3>AI SW 엔진</h3>
+                        <p class="description">PyTorch 기반 자율 제어 및 머신러닝</p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-primary">교과과정</a>
+                            <a href="#" class="link-inline">연구 성과 ></a>
                         </div>
-                        <div class="timeline-item">
-                            <div class="dot"></div>
-                            <h3>Process Yield Optimization Project (Lead)</h3>
-                            <p>플라즈마 균일도 개선 알고리즘 적용으로 박막 수율 1.5% 향상 및 챔버 세정 주기 20% 연장 실현</p>
+                    </div>
+                    <div class="lineup-card slide-up-section delay-2">
+                        <div class="card-image bg-dept-robot" role="img" aria-label="로봇 하드웨어"></div>
+                        <h3>로봇 하드웨어</h3>
+                        <p class="description">ROS 기반 로봇 제어 및 기구 설계</p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-primary">교과과정</a>
+                            <a href="#" class="link-inline">연구 성과 ></a>
                         </div>
-                        <div class="timeline-item">
-                            <div class="dot"></div>
-                            <h3>Global Collaboration & Communication</h3>
-                            <p>Santa Clara 본사 엔지니어링 팀과의 주기적 기술 화상 회의 주도 및 기술 리포트 발간 (Eng. Spec V4.2 기반)</p>
+                    </div>
+                    <div class="lineup-card slide-up-section delay-1">
+                        <div class="card-image bg-dept-nano" role="img" aria-label="임베디드 제어"></div>
+                        <h3>임베디드 시스템</h3>
+                        <p class="description">RTOS 및 마이크로컨트롤러 활용</p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-primary">교과과정</a>
+                            <a href="#" class="link-inline">연구 성과 ></a>
+                        </div>
+                    </div>
+                    <div class="lineup-card slide-up-section delay-2">
+                        <div class="card-image bg-dept-smart" role="img" aria-label="스마트 팩토리"></div>
+                        <h3>스마트 팩토리</h3>
+                        <p class="description">디지털 트윈 및 지능형 생산 공정</p>
+                        <div class="actions">
+                            <a href="#" class="btn btn-primary">교과과정</a>
+                            <a href="#" class="link-inline">연구 성과 ></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 05: FREE BOARD -->
-        <section id="board" class="v-section">
+        <!-- Accordion Section (Storytelling) -->
+        <section class="accordion-showcase section-padding">
             <div class="container">
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <span class="label">05. BOARD</span>
-                    <h2>자유 게시판 (방명록)</h2>
-                    <p style="margin: 0 auto; line-height: 1.8; margin-bottom: 2rem;">이 게시판은 데이터베이스 없이 여러분의 브라우저 <b>로컬 스토리지(Local Storage)</b>를 사용하여 동작합니다.<br>등록된 글은 현재 사용 중인 기기의 브라우저에만 저장되며 새로고침해도 유지됩니다.<br>질문, 요청, 관련 정보를 자유롭게 남기고 답글도 달아보세요!</p>
-                    
-                    <div class="board-controls" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
-                        <button id="btnShowWrite" class="btn btn-primary" onclick="toggleWriteForm()"><i data-lucide="pen-square"></i> 글쓰기</button>
-                        <a href="#hero" class="btn btn-secondary" style="margin-left: 0;"><i data-lucide="home"></i> 홈으로</a>
-                    </div>
-                </div>
-                
-                <div class="board-container glass-form">
-                    <div id="boardFormContainer" class="board-post-form" style="display: none;">
-                        <h3 id="formTitle">새 글 쓰기</h3>
-                        <form id="boardForm" class="board-form" onsubmit="submitBoard(event)">
-                            <input type="hidden" id="editPostId" value="">
-                            <div class="form-row">
-                                <input type="text" id="boardName" required placeholder="이름 (Name)">
-                                <input type="email" id="boardEmail" required placeholder="이메일 (Email)">
+                <header class="section-title-wrapper">
+                    <h2>우리의 가치와 비전.</h2>
+                </header>
+                <div class="accordion-card">
+                    <div class="accordion-left">
+                        <div class="accordion-item active" data-image="media-friends-1">
+                            <div class="accordion-header">
+                                <h3>이론과 실무의 완벽한 조화 <span>^</span></h3>
                             </div>
-                            <textarea id="boardContent" rows="4" required placeholder="공유하고 싶은 정보나 질문을 요약해 주세요..."></textarea>
-                            <div style="display: flex; gap: 1rem;">
-                                <button type="submit" id="btnSubmitPost" class="btn btn-primary" style="flex: 1; font-size: 1rem; padding: 0.8rem 2rem;">게시글 등록</button>
-                                <button type="button" class="btn btn-secondary" onclick="toggleWriteForm()" style="flex: 0.5; margin-left: 0;">취소</button>
+                            <div class="accordion-body">
+                                <p>강의실에서 배운 코드가 실제 로봇을 움직이는 경험, 그것이 우리 학과의 핵심 가치입니다. 현장 중심의 실무 프로젝트를 통해 졸업 후 바로 투입 가능한 전문가를 양성합니다.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item" data-image="media-friends-2">
+                            <div class="accordion-header">
+                                <h3>글로벌 네트워크 인프라 <span>^</span></h3>
+                            </div>
+                            <div class="accordion-body">
+                                <p>해외 유수 대학 및 기업과의 기술 교류를 통해 세계 최고의 로봇 소프트웨어 인재로 거듭날 수 있는 기회를 제공합니다.</p>
+                            </div>
+                        </div>
+                        <div class="accordion-item" data-image="media-friends-3">
+                            <div class="accordion-header">
+                                <h3>창의적인 프로젝트 중심 교육 <span>^</span></h3>
+                            </div>
+                            <div class="accordion-body">
+                                <p>정형화된 수업이 아닌, 학생 스스로 문제를 정의하고 로봇 솔루션을 만드는 캡스톤 디자인 수업이 성장의 원동력이 됩니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-right">
+                        <div class="display-media">
+                            <div class="media-container media-friends-1 active"></div>
+                            <div class="media-container media-friends-2"></div>
+                            <div class="media-container media-friends-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bulletin Board (Functional) -->
+        <section class="support-board section-padding">
+            <div class="container container-center">
+                <div class="support-cards-grid slide-up-section">
+                    <div class="support-card" id="btn-show-form">
+                        <div class="support-icon icon-blue">✎</div>
+                        <p>게시글 작성하기</p>
+                    </div>
+                    <div class="support-card" id="btn-popular-posts">
+                        <div class="support-icon icon-green">📋</div>
+                        <p>인기 게시글 보기</p>
+                    </div>
+                    <div class="support-card">
+                        <div class="support-icon icon-red">⭐</div>
+                        <p>자료실 및 공지</p>
+                    </div>
+                </div>
+
+                <header class="section-title-wrapper-centered fade-in-section">
+                    <h2>학과 커뮤니티 게시판</h2>
+                    <p style="color: #86868b; margin-top: -10px; margin-bottom: 40px;">실시간으로 소통하고 정보를 공유하세요.</p>
+                </header>
+
+                <div class="support-search-wrapper fade-in-section">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="board-search" placeholder="궁금한 키워드를 검색해 보세요">
+                </div>
+
+                <div id="board-list" class="support-posts-grid">
+                    <p class="loading">정보를 불러오는 중...</p>
+                </div>
+
+                <!-- Post Form Modal -->
+                <div id="modal-post-form" class="modal">
+                    <div class="modal-content">
+                        <span class="close-btn">&times;</span>
+                        <h3>학과 소식 남기기</h3>
+                        <form id="post-form">
+                            <div class="form-row">
+                                <input type="text" id="post-author" placeholder="이름" required>
+                                <input type="email" id="post-email" placeholder="이메일" required>
+                            </div>
+                            <textarea id="post-content" placeholder="공유하고 싶은 정보나 질문을 요약해 주세요..." required></textarea>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">게시글 등록</button>
+                                <button type="button" class="btn btn-light" id="btn-cancel-form">취소</button>
                             </div>
                         </form>
                     </div>
-                    
-                    <div class="board-list" id="boardList">
-                        <!-- Posts will be rendered here via JS -->
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 06: CONTACT -->
-        <section id="contact" class="v-section">
-            <div class="container">
-                <div style="text-align: center; margin-bottom: 3rem;">
-                    <span class="label">06. 연락처</span>
-                    <h2>문의하기</h2>
-                    <p style="margin: 0 auto;">아래 양식을 작성해 주시면 담당자 이메일로 즉시 메시지가 전송됩니다.</p>
-                </div>
-                
-                <div class="contact-form-container">
-                    <!-- mailto: 자신의 이메일 주소로 변경하여 사용하세요 -->
-                    <form id="contactForm" class="glass-form" onsubmit="sendEmail(event)">
-                        <div class="form-group">
-                            <label for="name">이름 (Name)</label>
-                            <input type="text" id="contactName" required placeholder="이름을 입력하세요">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">이메일 (Email)</label>
-                            <input type="email" id="contactEmail" required placeholder="이메일 주소를 입력하세요">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">내용 (Message)</label>
-                            <textarea id="contactMessage" rows="5" required placeholder="문의하실 내용을 입력하세요"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary submit-btn">메시지 보내기</button>
-                    </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="glass-footer">
-        <div class="contact-info">
-            <p><i data-lucide="mail"></i> 1234@gmail.com</p>
-            <p><i data-lucide="phone"></i> 010-1234-5678</p>
-        </div>
-        <p class="copyright">&copy; 2026 Applied Materials Korea Portfolio. Built by Antigravity.</p>
-    </footer>
-
+    <!-- Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore-compat.js"></script>
     <script src="script.js"></script>
-    <script>lucide.createIcons();</script>
 </body>
 </html>
